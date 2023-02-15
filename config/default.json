@@ -1,0 +1,16 @@
+{
+  "server": {
+    "cache": false,
+    "port": "PORT",
+    "loglevel": "debug",
+    "shutdown": 60000,
+    "env": "ENV"
+  },
+  "database": {
+    "name": "searchapi",
+    "host": "localhost",
+    "user": "searchuser",
+    "password": "secret",
+    "port": 5432
+  }
+}

@@ -1,8 +1,9 @@
 {
   "server": {
-    "port": "undefined",
+    "port": "3000",
     "env": "production",
     "loglevel": "info",
+    "jwt":"s3cr37k3y",
     "shutdown": 90000
   },
   "database": {

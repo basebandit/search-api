@@ -4,6 +4,7 @@
     "env": "development",
     "loglevel": "debug",
     "shutdown": 60000,
+    "jwt":"s3cr37k3y",
     "cache": false
   },
   "database": {

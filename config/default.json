@@ -4,6 +4,7 @@
     "port": "PORT",
     "loglevel": "debug",
     "shutdown": 60000,
+    "jwt":"s3cr37k3y",
     "env": "ENV"
   },
   "database": {

@@ -68,7 +68,7 @@ class ApiServer {
       });
 
       stoppable(this.httpServer, this.shutdownTimeout);
-       
+
       // ensure that the server exits correctly on Ctrl+C and SIGTERM
       process.removeAllListeners("SIGINT").on("SIGINT", this.shutdown.bind(this)).removeAllListeners("SIGTERM").on("SIGTERM", this.shutdown.bind(this));
     });
@@ -122,14 +122,16 @@ class ApiServer {
 }
 
 /** Logic to bootstrap our server */
-async function bootServer(app: express.Application,config: Config): Promise<ApiServer> {
+async function bootServer(app: express.Application, config: Config): Promise<ApiServer> {
   debug("Begin: start server");
 
   const startTime = Date.now();
   const appServer = new ApiServer(config)
   try {
     debug("Begin: connect database");
-    await db.initDB();
+    // Run a simple query to determine connectivity.
+    // Running this query forces a round trip through the database.
+    await db.raw('SELECT true');
     console.info(`Database connected in ${(Date.now() - startTime) / 1000}s`);
     debug("Database ready (success)");
     debug("End: connect database");
